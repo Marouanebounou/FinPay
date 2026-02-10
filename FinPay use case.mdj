@@ -10808,9 +10808,9 @@
 											"parentStyle": true,
 											"left": 253,
 											"top": 1022,
-											"width": 42.17724609375,
+											"width": 43.62451171875,
 											"height": 13,
-											"text": "Admin"
+											"text": "FinPay"
 										},
 										{
 											"_type": "LabelView",
@@ -10846,7 +10846,7 @@
 									"parentStyle": true,
 									"left": 248,
 									"top": 1015,
-									"width": 52.17724609375,
+									"width": 53.62451171875,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGcRryt4lE0FJo="
@@ -10935,7 +10935,7 @@
 							"containerChangeable": true,
 							"left": 248,
 							"top": 960,
-							"width": 51.17724609375,
+							"width": 52.62451171875,
 							"height": 80,
 							"nameCompartment": {
 								"$ref": "AAAAAAGcRryt4lEzZaA="
@@ -14051,7 +14051,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 446,
+									"left": 447,
 									"top": 951,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -14073,7 +14073,7 @@
 									"visible": null,
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 444,
+									"left": 445,
 									"top": 936,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -14095,7 +14095,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 451,
+									"left": 452,
 									"top": 980,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -14117,7 +14117,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 323,
+									"left": 325,
 									"top": 971,
 									"height": 13,
 									"alpha": 0.5235987755982988,
@@ -14139,7 +14139,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 323,
+									"left": 325,
 									"top": 957,
 									"height": 13,
 									"alpha": 0.7853981633974483,
@@ -14161,7 +14161,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 323,
+									"left": 325,
 									"top": 998,
 									"height": 13,
 									"alpha": -0.5235987755982988,
@@ -14274,7 +14274,7 @@
 								"$ref": "AAAAAAGcRryt4lEyu1E="
 							},
 							"lineStyle": 1,
-							"points": "300:996;599:948",
+							"points": "302:996;599:948",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGcRtS5W3VPZrU="
@@ -14333,7 +14333,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 449,
+									"left": 450,
 									"top": 979,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -14355,7 +14355,7 @@
 									"visible": null,
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 449,
+									"left": 450,
 									"top": 964,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -14377,7 +14377,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 448,
+									"left": 449,
 									"top": 1008,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -14399,7 +14399,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 326,
+									"left": 328,
 									"top": 979,
 									"height": 13,
 									"alpha": 0.5235987755982988,
@@ -14421,7 +14421,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 328,
+									"left": 330,
 									"top": 965,
 									"height": 13,
 									"alpha": 0.7853981633974483,
@@ -14443,7 +14443,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 321,
+									"left": 323,
 									"top": 1006,
 									"height": 13,
 									"alpha": -0.5235987755982988,
@@ -14556,7 +14556,7 @@
 								"$ref": "AAAAAAGcRryt4lEyu1E="
 							},
 							"lineStyle": 1,
-							"points": "300:1000;599:1001",
+							"points": "302:1000;599:1001",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGcRtTEG3ib+Q8="
@@ -14615,7 +14615,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 454,
+									"left": 455,
 									"top": 1009,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -14637,7 +14637,7 @@
 									"visible": null,
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 456,
+									"left": 457,
 									"top": 994,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -14659,7 +14659,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 449,
+									"left": 450,
 									"top": 1038,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -14681,7 +14681,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 328,
+									"left": 330,
 									"top": 988,
 									"height": 13,
 									"alpha": 0.5235987755982988,
@@ -14703,7 +14703,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 332,
+									"left": 334,
 									"top": 975,
 									"height": 13,
 									"alpha": 0.7853981633974483,
@@ -14725,7 +14725,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 319,
+									"left": 321,
 									"top": 1014,
 									"height": 13,
 									"alpha": -0.5235987755982988,
@@ -14838,7 +14838,7 @@
 								"$ref": "AAAAAAGcRryt4lEyu1E="
 							},
 							"lineStyle": 1,
-							"points": "300:1005;604:1055",
+							"points": "302:1005;604:1055",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGcRtTPPHxBfK0="
@@ -17625,7 +17625,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGcRrsacFBb4t0="
 					},
-					"name": "Admin",
+					"name": "FinPay",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
