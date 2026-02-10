@@ -2,18 +2,22 @@ package org.example;
 
 import java.time.LocalDateTime;
 
-public class facture {
+public class Facture {
+    private int prestataireId;
     private int factureId;
     private double balence;
     private LocalDateTime date;
     private String status;
     private int counter = 1;
+    private int clientId;
 
-    public facture(int factureId, double balence, LocalDateTime date, String status) {
+    public Facture(int factureId,double balence, LocalDateTime date, String status ,int clientId) {
+        this.prestataireId = prestataireId;
         this.factureId = counter++;
         this.balence = balence;
         this.date = date;
         this.status = status;
+        this.clientId = clientId;
     }
 
     public int getFactureId() {
@@ -46,5 +50,13 @@ public class facture {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public int getPrestataireId() {
+        return prestataireId;
+    }
+
+    public void setPrestataireId(int prestataireId) {
+        this.prestataireId = prestataireId;
     }
 }

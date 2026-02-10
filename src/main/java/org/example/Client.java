@@ -5,7 +5,7 @@ public class Client extends Person{
     private int clientId;
     private static int counter = 1;
     private String password;
-    public Client(String name,int age,int id,String email,String password){
+    public Client(String name,int age,String email,String password){
         super(name,age);
         this.clientId = counter++;
         this.email = email;
