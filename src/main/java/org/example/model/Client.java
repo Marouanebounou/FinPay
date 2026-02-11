@@ -1,6 +1,6 @@
-package org.example;
+package org.example.model;
 
-public class Client extends Person{
+public class Client extends Person {
     private String email;
     private int clientId;
     private static int counter = 1;

@@ -1,4 +1,6 @@
-package org.example;
+package org.example.model;
+
+import org.example.FinPay;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
