@@ -58,6 +58,18 @@ public class Prestataire {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return "Prestataire{" +
+                "name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+
     Scanner sc = new Scanner(System.in);
 
     public Prestataire searchPrestataire(List<Prestataire> prestatairesList){
@@ -97,12 +109,17 @@ public class Prestataire {
 
         Prestataire foundPrestataire = searchPrestataire(prestatairesList);
         if (foundPrestataire == null){
+            System.out.println("ce prestataire n'existe pas");
             return null;
         }
 
         Client foundClient = searchClient(clientsList);
+        if (foundClient == null){
+            System.out.println("ce client n'existe pas");
+            return null;
+        }
 
-        return new Facture(foundPrestataire.getId(),amount,now,"unpayed",foundClient.getClientId());
+        return new Facture(foundPrestataire,amount,now,"unpayed",foundClient);
     }
 
     public Facture searchFacture(List<Facture> factureList){
@@ -139,6 +156,8 @@ public class Prestataire {
         }else {
             System.out.println("tu ne peux pas changer une facture deja paye");
         }
+    }
+    public void removeFacture(List<Facture> factureList){
 
     }
 }

@@ -35,4 +35,13 @@ public class Client extends Person{
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "email='" + email + '\'' +
+                ", clientId=" + clientId +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
