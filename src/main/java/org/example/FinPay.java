@@ -1,5 +1,10 @@
 package org.example;
 
+import org.example.model.Client;
+import org.example.model.Facture;
+import org.example.model.Prestataire;
+import org.example.model.Statistique;
+
 import java.util.ArrayList;
 import java.util.List;
 
