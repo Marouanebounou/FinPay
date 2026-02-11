@@ -1,14 +1,11 @@
 package org.example.model;
 
-import org.example.FinPay;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Statistique {
     private int id;
-    private FinPay finPay;
     private static int idCounter = 1;
     private List<Facture> factureList;
     private BigDecimal totalAmount;
@@ -16,8 +13,7 @@ public class Statistique {
     private List<Client> clients;
     private List<Prestataire> prestataires;
 
-    public Statistique(FinPay finPay) {
-        this.finPay = finPay;
+    public Statistique() {
         this.id = idCounter++;
         this.factureList = new ArrayList<>();
         this.totalAmount = BigDecimal.valueOf(0);
@@ -25,14 +21,6 @@ public class Statistique {
         this.clients = new ArrayList<>();
         this.prestataires = new ArrayList<>();
 
-    }
-
-    public FinPay getFinPay() {
-        return finPay;
-    }
-
-    public void setFinPay(FinPay finPay) {
-        this.finPay = finPay;
     }
 
     public int getId() {
