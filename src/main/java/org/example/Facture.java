@@ -3,17 +3,21 @@ package org.example;
 import java.time.LocalDateTime;
 
 public class Facture {
+    private Prestataire prestataire;
     private int factureId;
-    private double balance;
+    private double balence;
     private LocalDateTime date;
     private String status;
-    private int counter = 1;
+    private static int counter = 1;
+    private Client client;
 
-    public Facture(int factureId, double balance, LocalDateTime date, String status) {
+    public Facture(Prestataire prestataire,double balence, LocalDateTime date, String status ,Client client) {
+        this.prestataire = prestataire;
         this.factureId = counter++;
-        this.balance = balance;
+        this.balence = balence;
         this.date = date;
         this.status = status;
+        this.client = client;
     }
 
     public int getFactureId() {
@@ -32,6 +36,14 @@ public class Facture {
         this.date = date;
     }
 
+    public double getBalence() {
+        return balence;
+    }
+
+    public void setBalence(double balence) {
+        this.balence = balence;
+    }
+
     public String getStatus() {
         return status;
     }
@@ -40,12 +52,5 @@ public class Facture {
         this.status = status;
     }
 
-    public double getBalance() {
-        return balance;
-    }
-
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
 
 }
