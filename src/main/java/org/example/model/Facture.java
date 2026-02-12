@@ -1,38 +1,37 @@
 package org.example.model;
 
-import java.time.LocalDateTime;
+
+import java.sql.Date;
 
 public class Facture {
-    private Prestataire prestataire;
-    private int factureId;
+    private int idInvoice;
+    private int id_pre;
     private double balence;
-    private LocalDateTime date;
+    private Date date;
     private String status;
-    private static int counter = 1;
-    private Client client;
+    private int idClient;
 
-    public Facture(Prestataire prestataire,double balence, LocalDateTime date, String status ,Client client) {
-        this.prestataire = prestataire;
-        this.factureId = counter++;
+    public Facture(int id_pre,double balence, Date date, String status ,int idClient) {
+        this.id_pre = id_pre;
         this.balence = balence;
         this.date = date;
         this.status = status;
-        this.client = client;
+        this.idClient = idClient;
     }
 
-    public int getFactureId() {
-        return factureId;
+    public int getIdInvoice() {
+        return idInvoice;
     }
 
-    public void setFactureId(int factureId) {
-        this.factureId = factureId;
+    public void setIdInvoice(int idInvoice) {
+        this.idInvoice = idInvoice;
     }
 
-    public LocalDateTime getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDateTime date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -52,5 +51,19 @@ public class Facture {
         this.status = status;
     }
 
+    public int getId_pre() {
+        return id_pre;
+    }
 
+    public void setId_pre(int id_pre) {
+        this.id_pre = id_pre;
+    }
+
+    public int getIdClient() {
+        return idClient;
+    }
+
+    public void setIdClient(int idClient) {
+        this.idClient = idClient;
+    }
 }

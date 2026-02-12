@@ -2,22 +2,12 @@ package org.example.model;
 
 public class Client extends Person {
     private String email;
-    private int clientId;
-    private static int counter = 1;
     private String password;
+    private int clientId;
     public Client(String name,int age,String email,String password){
         super(name,age);
-        this.clientId = counter++;
         this.email = email;
         this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public int getClientId() {
@@ -26,6 +16,14 @@ public class Client extends Person {
 
     public void setClientId(int clientId) {
         this.clientId = clientId;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -40,7 +38,6 @@ public class Client extends Person {
     public String toString() {
         return "Client{" +
                 "email='" + email + '\'' +
-                ", clientId=" + clientId +
                 ", password='" + password + '\'' +
                 '}';
     }
