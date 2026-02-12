@@ -5,16 +5,14 @@ import java.util.Date;
 
 public class Paiement {
     private int id;
-    private static int counter;
     private Date date;
     private BigDecimal balance;
-    private Facture facture;
+    private int idFacture;
 
-    public Paiement( BigDecimal balance, Facture facture) {
-        this.id = counter++;
-        this.date = new Date();
+    public Paiement(BigDecimal balance, int idFacture , Date date) {
+        this.date = date;
         this.balance = balance;
-        this.facture = facture;
+        this.idFacture = idFacture;
     }
 
     public int getId() {
@@ -41,11 +39,11 @@ public class Paiement {
         this.balance = balance;
     }
 
-    public Facture getFacture() {
-        return facture;
+    public int getIdFacture() {
+        return idFacture;
     }
 
-    public void setFacture(Facture facture) {
-        this.facture = facture;
+    public void setIdFacture(int idFacture) {
+        this.idFacture = idFacture;
     }
 }
