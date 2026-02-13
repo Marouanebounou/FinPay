@@ -61,8 +61,36 @@ public class ClientController {
         }
     }
 
-    public void menuGestionClients() {
+    public void updateClient(){
 
+    }
+
+    public void menuGestionClients() throws SQLException {
+        while (true){
+            System.out.println("=========Client==========");
+            System.out.println("1 pour Ajouter un client");
+            System.out.println("2 pour Lister les clients");
+            System.out.println("3 pour Modifier un client");
+            System.out.println("4 pour Supprimer un client");
+            System.out.println("5 pour chercher un client");
+            System.out.println("0 pour quitter ");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            if(choice == 0){
+                break;
+            }
+
+            switch (choice){
+                case 1 -> addClient();
+                case 2 -> listClients();
+                // need update
+                case 4 -> deleteClient();
+                case 5 -> searchClient();
+                default -> System.out.println("ce choix n'existe pas");
+            }
+        }
     }
 }
 

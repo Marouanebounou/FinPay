@@ -61,6 +61,33 @@ public class FactureController {
         }
     }
 
-    public void menuGestionFactures() {
+    public void menuGestionFactures() throws SQLException {
+        while (true){
+            System.out.println("=========Facture==========");
+            System.out.println("1 pour ajouter une facture");
+            System.out.println("2 pour Lister tous les factures");
+            System.out.println("3 pour Modifier une facture");
+            System.out.println("4 pour Supprimer une facture");
+            System.out.println("5 pour afficher les factures filtrer par status");
+            System.out.println("6 pour afficher lesfacture filtrer par prestataire ");
+            System.out.println("0 pour quitter ");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            if(choice == 0){
+                break;
+            }
+
+            switch (choice){
+                case 1 -> createFacture();
+                case 2 -> listAll();
+                // need update
+                case 4 -> deleteFacture();
+                case 5 -> filterByStatus();
+                case 6 -> filterByProvider();
+                default -> System.out.println("ce choix n'existe pas");
+            }
+        }
     }
 }
