@@ -39,6 +39,7 @@ public class Client extends Person {
         return "Client{" +
                 "email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", clientId=" + clientId +
                 '}';
     }
 }

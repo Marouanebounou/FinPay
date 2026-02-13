@@ -96,11 +96,17 @@ public class ClientDao {
 
             ResultSet rs = ps.executeQuery();
 
-            while (rs.next()){
-                clientList.add(new Client(rs.getString("clientName"),
+            while (rs.next()) {
+                Client client = new Client(
+                        rs.getString("clientName"),
                         rs.getInt("age"),
                         rs.getString("email"),
-                        rs.getString("passwordClient")));
+                        rs.getString("passwordClient")
+                );
+
+                client.setClientId(rs.getInt("idClient"));
+
+                clientList.add(client);
             }
             return clientList;
 
