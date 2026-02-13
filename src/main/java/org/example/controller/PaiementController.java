@@ -19,6 +19,17 @@ public class PaiementController {
         montant = scanner.nextBigDecimal();
         Paiement paiement = new Paiement(montant , idFacture , new Date());
         paiementService.effectuerPaiment(paiement);
+        System.out.println("Paiement effectué + statistiques enregistrées.");
+    }
+
+    public void getAllPaiments() throws Exception {
+        paiementService.getAllPaiments().forEach(System.out::println);
+    }
+
+    public void getPaimentById() throws Exception{
+        System.out.print("Facture ID: ");
+        int id = Integer.parseInt(scanner.nextLine());
+        paiementService.getPaimentById(id).toString();
     }
 
 }
