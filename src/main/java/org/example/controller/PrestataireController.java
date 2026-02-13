@@ -69,5 +69,8 @@ public class PrestataireController {
         System.out.println("Prestataire a ete supprimé");
     }
 
+    public void menuGestionPrestataires() {
+    }
+
 }
 

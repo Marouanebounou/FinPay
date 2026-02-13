@@ -2,6 +2,7 @@ package org.example.controller;
 
 import org.example.model.Paiement;
 import org.example.services.PaiementService;
+import org.example.sessions.Session;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -27,9 +28,13 @@ public class PaiementController {
     }
 
     public void getPaimentById() throws Exception{
-        System.out.print("Facture ID: ");
+        System.out.print("Paiment ID: ");
         int id = Integer.parseInt(scanner.nextLine());
         paiementService.getPaimentById(id).toString();
+    }
+
+    public void getCurrentClientPaiments() throws Exception{
+        paiementService.getPaimentById(Session.getCurrentUser().getId()).toString();
     }
 
 }

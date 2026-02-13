@@ -2,6 +2,7 @@ package org.example.controller;
 
 import org.example.model.Facture;
 import org.example.services.FactureService;
+import org.example.sessions.Session;
 
 import java.math.BigDecimal;
 import java.sql.SQLException;
@@ -45,6 +46,10 @@ public class FactureController {
         factureService.getInvoicesByProvider(id).forEach(System.out::println);
     }
 
+    public void getCurrentProviderFactures() throws Exception{
+        factureService.getInvoicesByProvider(Session.getCurrentUser().getId()).forEach(System.out::println);
+    }
+
     public void deleteFacture() throws SQLException {
         System.out.print("ID de la facture à supprimer: ");
         int id = scanner.nextInt();
@@ -54,5 +59,8 @@ public class FactureController {
         } else {
             System.out.println("ID introuvable.");
         }
+    }
+
+    public void menuGestionFactures() {
     }
 }

@@ -56,4 +56,15 @@ public class Statistique {
     public void setTotalComission(BigDecimal totalComission) {
         this.totalComission = totalComission;
     }
+
+    @Override
+    public String toString() {
+        return "Statistique : " +
+                "id= " + id +
+                ", totalAmount= " + totalAmount +
+                ", totalComission= " + totalComission +
+                ", dateOp= " + dateOp +
+                ", id_pai= " + id_pai +
+                '}';
+    }
 }

@@ -47,10 +47,11 @@ public class Prestataire {
 
     @Override
     public String toString() {
-        return "Prestataire{" +
-                "name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                ", id=" + id +
-                '}';
+        return "Prestataire : " +
+                "id= " + id +
+                ", name= '" + name + '\'' +
+                ", type= '" + type + '\'' +
+                ", createdAt= " + createdAt ;
     }
+
 }

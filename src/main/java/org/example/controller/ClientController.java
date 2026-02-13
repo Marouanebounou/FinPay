@@ -60,5 +60,9 @@ public class ClientController {
             System.out.println("Aucun client trouvé avec l'ID " + id);
         }
     }
+
+    public void menuGestionClients() {
+
+    }
 }
 
