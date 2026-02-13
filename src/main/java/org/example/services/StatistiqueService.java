@@ -3,6 +3,8 @@ package org.example.services;
 import org.example.dao.StatistiqueDAO;
 import org.example.model.Statistique;
 
+import java.math.BigDecimal;
+import java.sql.SQLException;
 import java.util.List;
 
 public class StatistiqueService {
@@ -27,4 +29,17 @@ public class StatistiqueService {
     public List<Statistique> getAllStatistique() throws Exception{
         return statistiqueDAO.findAll();
     }
+
+    public BigDecimal totalPaiements() throws Exception{
+        BigDecimal totalAmount = new BigDecimal(0);
+        getAllStatistique().stream().map(statistique -> totalAmount.add(statistique.getTotalAmount()));
+        return totalAmount;
+    }
+
+    public BigDecimal totalCommissions() throws Exception{
+        BigDecimal totalCommissions = new BigDecimal(0);
+        getAllStatistique().stream().map(statistique -> totalCommissions.add(statistique.getTotalComission()));
+        return totalCommissions;
+    }
+
 }

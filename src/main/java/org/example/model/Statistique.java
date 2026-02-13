@@ -10,10 +10,10 @@ public class Statistique {
     private Date dateOp;
     private int id_pai;
 
-    public Statistique( BigDecimal totalAmount, BigDecimal totalComission, int id_pai , Date dateOp) {
+    public Statistique( BigDecimal totalAmount, int id_pai , Date dateOp) {
         this.dateOp = dateOp;
         this.totalAmount = totalAmount;
-        this.totalComission = totalComission;
+        this.totalComission = totalAmount.multiply(BigDecimal.valueOf(0.002));
         this.id_pai = id_pai;
     }
 
@@ -55,5 +55,16 @@ public class Statistique {
 
     public void setTotalComission(BigDecimal totalComission) {
         this.totalComission = totalComission;
+    }
+
+    @Override
+    public String toString() {
+        return "Statistique : " +
+                "id= " + id +
+                ", totalAmount= " + totalAmount +
+                ", totalComission= " + totalComission +
+                ", dateOp= " + dateOp +
+                ", id_pai= " + id_pai +
+                '}';
     }
 }

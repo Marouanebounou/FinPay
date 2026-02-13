@@ -28,7 +28,7 @@ public class StatistiqueDAO  {
             ps.setInt(1 , id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()){
-                statistique = new Statistique(rs.getBigDecimal("totalAmount") , rs.getBigDecimal("totalComission")  , rs.getInt("id_paiment") , rs.getDate("date_op"));
+                statistique = new Statistique(rs.getBigDecimal("totalAmount")  , rs.getInt("id_paiment") , rs.getDate("date_op"));
             }
         }
         return statistique;
@@ -43,7 +43,7 @@ public class StatistiqueDAO  {
             ResultSet rs = pr.executeQuery();
             if (rs.next()){
                 while (rs.next()){
-                    statistiques.add(new Statistique(rs.getBigDecimal("totalAmount") , rs.getBigDecimal("totalComission")  , rs.getInt("id_paiment") , rs.getDate("date_op")));
+                    statistiques.add(new Statistique(rs.getBigDecimal("totalAmount") , rs.getInt("id_paiment") , rs.getDate("date_op")));
                 }
             }
         }

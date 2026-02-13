@@ -1,56 +1,38 @@
 package org.example.model;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class Facture {
-    private Prestataire prestataire;
-    private int factureId;
-    private double balence;
+    private int idInvoice;
+    private int id_pre;
+    private BigDecimal balance;
     private LocalDateTime date;
     private String status;
-    private static int counter = 1;
-    private Client client;
+    private int idClient;
 
-    public Facture(Prestataire prestataire,double balence, LocalDateTime date, String status ,Client client) {
-        this.prestataire = prestataire;
-        this.factureId = counter++;
-        this.balence = balence;
+    public Facture(int id_pre, BigDecimal balance, LocalDateTime date, String status, int idClient) {
+        this.id_pre = id_pre;
+        this.balance = balance;
         this.date = date;
         this.status = status;
-        this.client = client;
+        this.idClient = idClient;
     }
+    public int getIdInvoice() { return idInvoice; }
+    public void setIdInvoice(int idInvoice) { this.idInvoice = idInvoice; }
 
-    public int getFactureId() {
-        return factureId;
-    }
+    public LocalDateTime getDate() { return date; }
+    public void setDate(LocalDateTime date) { this.date = date; }
 
-    public void setFactureId(int factureId) {
-        this.factureId = factureId;
-    }
+    public BigDecimal getBalance() { return balance; }
+    public void setBalance(BigDecimal balance) { this.balance = balance; }
 
-    public LocalDateTime getDate() {
-        return date;
-    }
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
 
-    public void setDate(LocalDateTime date) {
-        this.date = date;
-    }
+    public int getId_pre() { return id_pre; }
+    public void setId_pre(int id_pre) { this.id_pre = id_pre; }
 
-    public double getBalence() {
-        return balence;
-    }
-
-    public void setBalence(double balence) {
-        this.balence = balence;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-
+    public int getIdClient() { return idClient; }
+    public void setIdClient(int idClient) { this.idClient = idClient; }
 }

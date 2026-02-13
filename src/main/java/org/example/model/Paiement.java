@@ -46,4 +46,13 @@ public class Paiement {
     public void setIdFacture(int idFacture) {
         this.idFacture = idFacture;
     }
+
+    @Override
+    public String toString() {
+        return "Paiement : " +
+                "id= " + id +
+                ", date= " + date +
+                ", balance= " + balance +
+                ", idFacture= " + idFacture;
+    }
 }
