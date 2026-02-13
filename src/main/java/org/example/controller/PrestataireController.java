@@ -69,7 +69,36 @@ public class PrestataireController {
         System.out.println("Prestataire a ete supprimé");
     }
 
-    public void menuGestionPrestataires() {
+    public void menuGestionPrestataires() throws Exception {
+        int choice;
+        do {
+            System.out.println("\n=== GESTION DES PRESTATAIRES ===");
+            System.out.println("1. Ajouter un prestataire");
+            System.out.println("2. Lister les prestataires");
+            System.out.println("3. Modifier un prestataire");
+            System.out.println("4. Supprimer un prestataire");
+            System.out.println("0. Retour");
+
+            choice = readChoice();
+
+            switch (choice) {
+                case 1 -> createPrestataire();
+                case 2 -> getAll();
+                case 3 -> updatePrestataire();
+                case 4 -> deletePrestataire();
+                case 0 -> System.out.println("Retour menu admin...");
+                default -> System.out.println("Choix invalide");
+            }
+        } while (choice != 0);
+    }
+
+    private int readChoice(){
+        System.out.print("Votre choix: ");
+        while (!scanner.hasNext()){
+            scanner.next();
+            System.out.print("Entrez un nombre: ");
+        }
+        return scanner.nextInt();
     }
 
 }
