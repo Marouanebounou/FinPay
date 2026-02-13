@@ -75,14 +75,20 @@ public class ClientDao {
 
             ps.setInt(1,clientId);
 
-            ResultSet rs = ps.executeQuery();
-
-            Client newClient = new Client(rs.getString("clientName"),
-                    rs.getInt("age"),
-                    rs.getString("email"),
-                    rs.getString("passwordClient"));
-            return newClient;
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    Client client = new Client(
+                            rs.getString("clientName"),
+                            rs.getInt("age"),
+                            rs.getString("email"),
+                            rs.getString("passwordClient")
+                    );
+                    client.setClientId(rs.getInt("idClient"));
+                    return client;
+                }
+            }
         }
+        return null;
     }
 
     public List<Client> displayClients() throws SQLException{
