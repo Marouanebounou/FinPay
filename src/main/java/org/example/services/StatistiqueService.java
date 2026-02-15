@@ -30,16 +30,17 @@ public class StatistiqueService {
         return statistiqueDAO.findAll();
     }
 
-    public BigDecimal totalPaiements() throws Exception{
-        BigDecimal totalAmount = new BigDecimal(0);
-        getAllStatistique().stream().map(statistique -> totalAmount.add(statistique.getTotalAmount()));
-        return totalAmount;
+    public BigDecimal totalPaiements() throws Exception {
+        return getAllStatistique().stream()
+                .map(Statistique::getTotalAmount)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
-    public BigDecimal totalCommissions() throws Exception{
-        BigDecimal totalCommissions = new BigDecimal(0);
-        getAllStatistique().stream().map(statistique -> totalCommissions.add(statistique.getTotalComission()));
-        return totalCommissions;
+    public BigDecimal totalCommissions() throws Exception {
+        return getAllStatistique().stream()
+                .map(Statistique::getTotalComission)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
+
 
 }

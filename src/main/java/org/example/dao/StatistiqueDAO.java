@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StatistiqueDAO  {
-    private static final String INSERT_SQL = "INSERT INTO statistiaue (id_paiment , totalAmount , totalComission, date_op) values (? , ? , ? , ?)";
+    private static final String INSERT_SQL = "INSERT INTO statistiaue (id_paiement , totalAmount , totalComission, date_op) values (? , ? , ? , ?)";
     public void insert(Statistique statistique) throws SQLException {
         try(Connection con = DatabaseConfig.getConnection(); PreparedStatement ps = con.prepareStatement(INSERT_SQL)){
             ps.setInt(1,statistique.getId_pai());
@@ -43,7 +43,7 @@ public class StatistiqueDAO  {
             ResultSet rs = pr.executeQuery();
             if (rs.next()){
                 while (rs.next()){
-                    statistiques.add(new Statistique(rs.getBigDecimal("totalAmount") , rs.getInt("id_paiment") , rs.getDate("date_op")));
+                    statistiques.add(new Statistique(rs.getBigDecimal("totalAmount") , rs.getInt("id_paiement") , rs.getDate("date_op")));
                 }
             }
         }

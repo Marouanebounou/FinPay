@@ -17,12 +17,13 @@ public class PrestataireController {
         prestataire.setName(scanner.nextLine());
         System.out.print("Type : ");
         prestataire.setType(scanner.nextLine());
-        prestataire.setCreatedAt(new Date());
+        prestataire.setCreatedAt(new java.sql.Date(new Date().getTime()));
         System.out.println("Prestataire créé avec success");
         prestataireService.createPrestataire(prestataire);
     }
 
     public void updatePrestataire()throws Exception{
+        prestataireService.findAll().forEach(System.out::println);
         System.out.println("Entrer prestatiare id : ");
         int id = Integer.parseInt(scanner.nextLine());
         Prestataire prestataire = prestataireService.findPrestatairById(id);
@@ -59,7 +60,7 @@ public class PrestataireController {
 
     public void getAll() throws Exception {
         List<Prestataire> prestataires = prestataireService.findAll();
-        prestataires.stream().forEach(Prestataire::toString);
+        prestataires.forEach(p -> System.out.println(p.toString()));
     }
 
     public void deletePrestataire()throws Exception {
@@ -70,7 +71,37 @@ public class PrestataireController {
     }
 
     public void menuGestionPrestataires() {
+        int choice = -1;
+
+        while (choice != 0) {
+            try {
+                System.out.println("\n=== GESTION DES PRESTATAIRES ===");
+                System.out.println("1. Ajouter un prestataire");
+                System.out.println("2. Modifier un prestataire");
+                System.out.println("3. Rechercher prestataire par ID");
+                System.out.println("4. Lister tous les prestataires");
+                System.out.println("5. Supprimer un prestataire");
+                System.out.println("0. Retour");
+
+                System.out.print("Votre choix : ");
+                choice = Integer.parseInt(scanner.nextLine());
+
+                switch (choice) {
+                    case 1 -> createPrestataire();
+                    case 2 -> updatePrestataire();
+                    case 3 -> getPrestataireById();
+                    case 4 -> getAll();
+                    case 5 -> deletePrestataire();
+                    case 0 -> System.out.println("Retour au menu principal...");
+                    default -> System.out.println("Choix invalide");
+                }
+
+            } catch (Exception e) {
+                System.out.println("Erreur : " + e.getMessage());
+            }
+        }
     }
+
 
 }
 

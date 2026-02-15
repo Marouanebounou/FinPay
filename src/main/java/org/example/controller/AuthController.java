@@ -17,6 +17,7 @@ public class AuthController {
             System.out.println("Connexion réussie");
         }else {
             System.out.println("Email ou mot de passe incorrect!");
+            login();
         }
     }
 

@@ -13,9 +13,8 @@ public class PaiementService {
     private final StatistiqueDAO statistiqueDAO = new StatistiqueDAO();
 
     public void effectuerPaiment(Paiement paiement)throws Exception{
-        paiementDao.insert(paiement);
-
-        Statistique statistique = new Statistique(paiement.getBalance() , paiement.getId() , paiement.getDate());
+        int paiementId = paiementDao.insert(paiement);
+        Statistique statistique = new Statistique(paiement.getBalance() , paiementId , paiement.getDate());
         statistiqueDAO.insert(statistique);
     }
 

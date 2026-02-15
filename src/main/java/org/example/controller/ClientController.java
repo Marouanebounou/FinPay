@@ -62,7 +62,46 @@ public class ClientController {
     }
 
     public void menuGestionClients() {
+        int choix = -1;
 
+        do {
+            System.out.println("\n===== Gestion des Clients =====");
+            System.out.println("1. Ajouter un client");
+            System.out.println("2. Lister tous les clients");
+            System.out.println("3. Rechercher un client par ID");
+            System.out.println("4. Supprimer un client");
+            System.out.println("0. Retour");
+            System.out.print("Votre choix : ");
+
+            try {
+                choix = Integer.parseInt(scanner.nextLine());
+
+                switch (choix) {
+                    case 1:
+                        addClient();
+                        break;
+                    case 2:
+                        listClients();
+                        break;
+                    case 3:
+                        searchClient();
+                        break;
+                    case 4:
+                        deleteClient();
+                        break;
+                    case 0:
+                        System.out.println("Retour au menu principal...");
+                        break;
+                    default:
+                        System.out.println("Choix invalide.");
+                }
+            } catch (Exception e) {
+                System.out.println("Erreur : " + e.getMessage());
+                scanner.nextLine();
+            }
+
+        } while (choix != 0);
     }
+
 }
 

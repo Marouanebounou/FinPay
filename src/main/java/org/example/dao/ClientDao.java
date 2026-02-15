@@ -33,7 +33,7 @@ public class ClientDao {
 
     public boolean removeClient(int clientId) throws SQLException{
 
-        String query = "DELETE FROM client WHERE clientId =?";
+        String query = "DELETE FROM client WHERE idClient =?";
 
         try(Connection conn = DatabaseConfig.getConnection();
         PreparedStatement ps = conn.prepareStatement(query)){
@@ -68,7 +68,7 @@ public class ClientDao {
 
     public Client findClientById(int clientId)throws SQLException{
 
-            String query = "SELECT * FROM client WHERE clientId = ?";
+            String query = "SELECT * FROM client WHERE idClient = ?";
 
         try (Connection conn =  DatabaseConfig.getConnection();
              PreparedStatement ps = conn.prepareStatement(query)){

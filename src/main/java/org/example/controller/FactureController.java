@@ -7,6 +7,7 @@ import org.example.sessions.Session;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Scanner;
 
 public class FactureController {
@@ -20,10 +21,7 @@ public class FactureController {
         System.out.print("ID du Client: ");
         int clientId = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("ID du Prestataire: ");
-        int preId = scanner.nextInt();
-        scanner.nextLine(); // clear buffer
-
+        int preId = Session.getCurrentUser().getIdpre();
         Facture f = new Facture(preId, balance, LocalDateTime.now(), "not payed", clientId);
         factureService.createInvoice(f);
         System.out.println("Facture créée avec succès !");
@@ -31,6 +29,10 @@ public class FactureController {
 
     public void listAll() throws SQLException {
         factureService.getAllInvoices().forEach(System.out::println);
+    }
+
+    public List<Facture> getAllFactures() throws Exception{
+        return factureService.getAllInvoices();
     }
 
     public void filterByStatus() throws SQLException {
@@ -46,8 +48,17 @@ public class FactureController {
         factureService.getInvoicesByProvider(id).forEach(System.out::println);
     }
 
+    public void updateFacture(Facture facture) throws Exception{
+        facture.setStatus("payed");
+        factureService.updateInvoice(facture);
+    }
+
+    public Facture getFactureById(int id)throws Exception{
+        return factureService.getFactureById(id);
+    }
+
     public void getCurrentProviderFactures() throws Exception{
-        factureService.getInvoicesByProvider(Session.getCurrentUser().getId()).forEach(System.out::println);
+        factureService.getInvoicesByProvider(Session.getCurrentUser().getIdpre()).forEach(System.out::println);
     }
 
     public void deleteFacture() throws SQLException {
@@ -62,5 +73,34 @@ public class FactureController {
     }
 
     public void menuGestionFactures() {
+
+        int choice = -1;
+
+        while (choice != 0) {
+            try {
+                System.out.println("\n=== GESTION DES FACTURES ===");
+                System.out.println("1. Lister toutes les factures");
+                System.out.println("2. Filtrer par statut");
+                System.out.println("3. Filtrer par prestataire");
+                System.out.println("4. Supprimer une facture");
+                System.out.println("0. Retour");
+
+                System.out.print("Votre choix : ");
+                choice = Integer.parseInt(scanner.nextLine());
+
+                switch (choice) {
+                    case 1 -> listAll();
+                    case 2 -> filterByStatus();
+                    case 3 -> filterByProvider();
+                    case 4 -> deleteFacture();
+                    case 0 -> System.out.println("Retour au menu précédent...");
+                    default -> System.out.println("Choix invalide");
+                }
+
+            } catch (Exception e) {
+                System.out.println("Erreur : " + e.getMessage());
+            }
+        }
     }
+
 }

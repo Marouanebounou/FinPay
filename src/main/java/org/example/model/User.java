@@ -5,6 +5,15 @@ public class User {
     private String email;
     private String password;
     private Role role;
+    private int idpre ;
+
+    public int getIdpre() {
+        return idpre;
+    }
+
+    public void setIdpre(int idpre) {
+        this.idpre = idpre;
+    }
 
     public int getId() {
         return id;
