@@ -1,16 +1,23 @@
 package org.example;
 
 import org.example.config.DatabaseConfig;
+import org.example.controller.MenuController;
 
 import java.sql.Connection;
 
 public class Main {
     static void main() {
-        try (Connection con = DatabaseConfig.getConnection()){
-            System.out.println("Khchiiiiii");
+        try{
+            System.out.println("=================================");
+            System.out.println("        FINPAY APPLICATION       ");
+            System.out.println("=================================\n");
+
+            MenuController menuController = new MenuController();
+            menuController.start();
+
         } catch (Exception e) {
-            System.out.println("TFooooo");
-            e.printStackTrace();
+            System.err.println("Une erreur critique est survenue.");
+            throw new RuntimeException(e);
         }
     }
 }

@@ -8,8 +8,19 @@ public class Paiement {
     private Date date;
     private BigDecimal balance;
     private int idFacture;
+    private int clientId ;
 
-    public Paiement(BigDecimal balance, int idFacture , Date date) {
+    public Paiement(BigDecimal balance, int idFacture , Date date , int id , int ClientID) {
+        this.id = id;
+        this.date = date;
+        this.balance = balance;
+        this.idFacture = idFacture;
+        this.clientId = ClientID;
+    }
+
+    public Paiement(BigDecimal balance, int idFacture , Date date , int clientId) {
+        this.id = id;
+        this.clientId = clientId;
         this.date = date;
         this.balance = balance;
         this.idFacture = idFacture;
@@ -50,9 +61,17 @@ public class Paiement {
     @Override
     public String toString() {
         return "Paiement : " +
-                "id= " + id +
-                ", date= " + date +
-                ", balance= " + balance +
-                ", idFacture= " + idFacture;
+                "Paiement id = " + id +
+                ", date = " + date +
+                ", balance = " + balance +
+                ", Facture id = " + idFacture;
+    }
+
+    public int getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(int id){
+        clientId = id;
     }
 }

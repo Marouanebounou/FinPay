@@ -29,11 +29,11 @@ public class PrestataireDao {
             PreparedStatement ps = con.prepareStatement(SELECT_BY_ID);
         ){
             ps.setInt(1, id);
-            ResultSet rs = ps.getResultSet();
+            ResultSet rs = ps.executeQuery();
             if (rs.next()){
                 prestataire = new Prestataire();
-                prestataire.setId(rs.getInt("id_per"));
-                prestataire.setName(rs.getNString("nom"));
+                prestataire.setId(rs.getInt("id_pre"));
+                prestataire.setName(rs.getString("nom"));
                 prestataire.setType(rs.getString("typePre"));
                 prestataire.setCreatedAt(rs.getDate("created_at"));
             }
@@ -51,8 +51,8 @@ public class PrestataireDao {
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
                 Prestataire prestataire = new Prestataire();
-                prestataire.setId(rs.getInt("id_per"));
-                prestataire.setName(rs.getNString("nom"));
+                prestataire.setId(rs.getInt("id_pre"));
+                prestataire.setName(rs.getString("nom"));
                 prestataire.setType(rs.getString("typePre"));
                 prestataire.setCreatedAt(rs.getDate("created_at"));
 
@@ -77,7 +77,7 @@ public class PrestataireDao {
     }
 
     public boolean deleteById(int id) throws SQLException{
-        String sql = "Delete from prestataire where id_pai = ?";
+        String sql = "Delete from prestataire where id_pre = ?";
 
         try(Connection con = DatabaseConfig.getConnection();
             PreparedStatement preparedStatement = con.prepareStatement(sql);

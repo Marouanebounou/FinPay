@@ -26,6 +26,14 @@ public class FactureService {
         return factureDao.filterByStatus(status);
     }
 
+    public void updateInvoice(Facture facture) throws Exception{
+        factureDao.updateInvoice(facture);
+    }
+
+    public Facture getFactureById(int id) throws Exception{
+        return factureDao.findById(id);
+    }
+
     public List<Facture> getInvoicesByProvider(int idPre) throws SQLException {
         if (idPre <= 0) {
             throw new IllegalArgumentException("ID prestataire invalide.");

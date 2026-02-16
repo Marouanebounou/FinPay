@@ -61,36 +61,47 @@ public class ClientController {
         }
     }
 
-    public void updateClient(){
+    public void menuGestionClients() {
+        int choix = -1;
 
-    }
+        do {
+            System.out.println("\n===== Gestion des Clients =====");
+            System.out.println("1. Ajouter un client");
+            System.out.println("2. Lister tous les clients");
+            System.out.println("3. Rechercher un client par ID");
+            System.out.println("4. Supprimer un client");
+            System.out.println("0. Retour");
+            System.out.print("Votre choix : ");
 
-    public void menuGestionClients() throws SQLException {
-        while (true){
-            System.out.println("=========Client==========");
-            System.out.println("1 pour Ajouter un client");
-            System.out.println("2 pour Lister les clients");
-            System.out.println("3 pour Modifier un client");
-            System.out.println("4 pour Supprimer un client");
-            System.out.println("5 pour chercher un client");
-            System.out.println("0 pour quitter ");
+            try {
+                choix = Integer.parseInt(scanner.nextLine());
 
-            int choice = scanner.nextInt();
-            scanner.nextLine();
-
-            if(choice == 0){
-                break;
+                switch (choix) {
+                    case 1:
+                        addClient();
+                        break;
+                    case 2:
+                        listClients();
+                        break;
+                    case 3:
+                        searchClient();
+                        break;
+                    case 4:
+                        deleteClient();
+                        break;
+                    case 0:
+                        System.out.println("Retour au menu principal...");
+                        break;
+                    default:
+                        System.out.println("Choix invalide.");
+                }
+            } catch (Exception e) {
+                System.out.println("Erreur : " + e.getMessage());
+                scanner.nextLine();
             }
 
-            switch (choice){
-                case 1 -> addClient();
-                case 2 -> listClients();
-                // need update
-                case 4 -> deleteClient();
-                case 5 -> searchClient();
-                default -> System.out.println("ce choix n'existe pas");
-            }
-        }
+        } while (choix != 0);
     }
+
 }
 

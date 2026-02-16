@@ -17,7 +17,7 @@ public class FactureDao {
 
     public void addInvoice(Facture facture)throws SQLException{
 
-        String query = "INSERT INTO facture(balance,`date`,status,idClient,id_pre) VALUES (?,?,?,?,?)";
+        String query = "INSERT INTO facture(balance,date,status,idClient,id_pre) VALUES (?,?,?,?,?)";
 
         try(Connection conn = DatabaseConfig.getConnection();
         PreparedStatement ps = conn.prepareStatement(query)){
@@ -114,6 +114,33 @@ public class FactureDao {
                 }
             }
             return factures;
+        }
+    }
+
+    public Facture findById(int idInvoice) throws SQLException {
+        String query = "SELECT * FROM facture WHERE id = ?";
+
+        try (Connection conn = DatabaseConfig.getConnection();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setInt(1, idInvoice);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    int id_pre = rs.getInt("id_pre");
+                    BigDecimal balance = rs.getBigDecimal("balance");
+                    LocalDateTime date = rs.getObject("date", LocalDateTime.class);
+                    String status = rs.getString("status");
+                    int idClient = rs.getInt("idClient");
+
+                    Facture facture = new Facture(id_pre, balance, date, status, idClient);
+                    facture.setIdInvoice(rs.getInt("id"));
+
+                    return facture;
+                } else {
+                    return null;
+                }
+            }
         }
     }
 

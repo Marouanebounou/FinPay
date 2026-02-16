@@ -23,9 +23,13 @@ public class UserDAO {
 
             if (resultSet.next()){
                 User user = new User();
-                user.setId(resultSet.getInt("id"));
+                user.setId(resultSet.getInt("id_user"));
                 user.setEmail(resultSet.getString("email"));
                 user.setRole(Role.valueOf(resultSet.getString("role")));
+                if (resultSet.getString("role").equals("PRESTATAIRE")){
+                    user.setIdpre(resultSet.getInt("id_prestataire"));
+                }
+
                 return Optional.of(user);
             }
             return Optional.empty();
