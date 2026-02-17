@@ -1,9 +1,5 @@
 package org.example;
-
-import org.example.config.DatabaseConfig;
 import org.example.controller.MenuController;
-
-import java.sql.Connection;
 
 public class Main {
     static void main() {

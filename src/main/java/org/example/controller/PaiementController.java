@@ -4,6 +4,7 @@ import org.example.model.Facture;
 import org.example.model.Paiement;
 import org.example.services.PaiementService;
 import org.example.sessions.Session;
+import org.example.util.GeneratePaimentPdf;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -49,6 +50,8 @@ public class PaiementController {
             paiementService.effectuerPaiment(paiement);
 
             System.out.println("Paiement effectué avec succès.");
+
+            GeneratePaimentPdf.genererRecuPaiment(paiement.getId());
 
         } catch (NumberFormatException e) {
             System.out.println("Veuillez entrer des valeurs numériques valides.");

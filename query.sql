@@ -26,6 +26,14 @@ alter table statistiaue
 add constraint fk_prestataire
 foreign key(id_pre) references prestataire(id_pre);
 
+CREATE TABLE utilisateur (
+    id_user INT PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('ADMIN','CLIENT','PRESTATAIRE') NOT NULL,
+    id_client INT NULL,
+    id_prestataire INT NULL
+);
 
 
 
