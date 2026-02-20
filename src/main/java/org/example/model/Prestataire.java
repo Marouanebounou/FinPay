@@ -1,9 +1,7 @@
 package org.example.model;
 
-import java.time.LocalDateTime;
+
 import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
 
 public class Prestataire {
     private String name;
