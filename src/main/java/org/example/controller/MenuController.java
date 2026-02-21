@@ -2,6 +2,7 @@ package org.example.controller;
 
 import org.example.model.Statistique;
 import org.example.sessions.Session;
+import org.example.util.RapportMensuel;
 
 import java.util.Scanner;
 
@@ -77,6 +78,7 @@ public class MenuController {
             System.out.println("3. Gérer clients");
             System.out.println("4. Gérer prestataires");
             System.out.println("5. Gérer factures");
+            System.out.println("6. Genere excel");
             System.out.println("0. Logout");
 
             choice = readChoice();
@@ -87,6 +89,7 @@ public class MenuController {
                 case 3 -> clientController.menuGestionClients();
                 case 4 -> prestataireController.menuGestionPrestataires();
                 case 5 -> factureController.menuGestionFactures();
+                case 6 -> RapportMensuel.generateExcelRapportMensuel();
                 case 0 -> authController.logout();
                 default -> System.out.println("Choix invalide");
             }

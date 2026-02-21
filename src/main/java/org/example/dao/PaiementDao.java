@@ -26,6 +26,7 @@ public class PaiementDao {
 
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
+                paiement.setId(rs.getInt(1));
                 return rs.getInt(1);
             } else {
                 throw new SQLException("Failed to retrieve generated paiement ID.");

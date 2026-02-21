@@ -13,7 +13,7 @@ public class Statistique {
     public Statistique( BigDecimal totalAmount, int id_pai , Date dateOp) {
         this.dateOp = dateOp;
         this.totalAmount = totalAmount;
-        this.totalComission = totalAmount.multiply(BigDecimal.valueOf(0.002));
+        this.totalComission = totalAmount.multiply(BigDecimal.valueOf(0.02));
         this.id_pai = id_pai;
     }
 
