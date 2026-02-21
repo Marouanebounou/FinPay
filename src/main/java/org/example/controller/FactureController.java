@@ -4,6 +4,10 @@ import org.example.model.Facture;
 import org.example.services.FactureService;
 import org.example.sessions.Session;
 
+import org.example.util.Generatefacture;
+import org.example.model.Client;
+import org.example.model.Prestataire;
+
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
@@ -25,6 +29,10 @@ public class FactureController {
         Facture f = new Facture(preId, balance, LocalDateTime.now(), "not payed", clientId);
         factureService.createInvoice(f);
         System.out.println("Facture créée avec succès !");
+
+        Generatefacture generator = new Generatefacture();
+
+
     }
 
     public void listAll() throws SQLException {
