@@ -10,6 +10,15 @@ public class Facture {
     private LocalDateTime date;
     private String status;
     private int idClient;
+    private String name;
+
+    public String getClientName() {
+        return name;
+    }
+
+    public void setClientName(String name) {
+        this.name = name;
+    }
 
     public Facture(int id_pre, BigDecimal balance, LocalDateTime date, String status, int idClient) {
         this.id_pre = id_pre;

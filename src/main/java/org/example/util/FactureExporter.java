@@ -62,7 +62,8 @@ public class FactureExporter {
         return factures;
     }
 
-    public static void exportToExcel(List<Facture> factures, String fileName) {
+    public static void exportToExcel(int id, String fileName) {
+        List<Facture> factures = fetchFactures(id);
         Workbook workbook = new XSSFWorkbook();
         Sheet sheet = workbook.createSheet("Factures");
 
@@ -129,10 +130,4 @@ public class FactureExporter {
         return name;
     }
 
-    public static void main(String[] args) {
-        int prestataireId = 1;
-        List<Facture> factures = fetchFactures(prestataireId);
-        exportToExcel(factures, "facturesprestataire2026-02.xlsx");
-
-    }
 }

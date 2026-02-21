@@ -1,9 +1,11 @@
 package org.example;
+
 import org.example.controller.MenuController;
 
 public class Main {
-    static void main() {
-        try{
+
+    public static void main(String[] args) {
+        try {
             System.out.println("=================================");
             System.out.println("        FINPAY APPLICATION       ");
             System.out.println("=================================\n");

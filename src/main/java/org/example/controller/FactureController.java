@@ -35,6 +35,16 @@ public class FactureController {
 
     }
 
+    public void generateFacturePdf() throws Exception{
+        getAllFactures().stream().filter(facture ->
+                facture.getIdClient() == Session.getCurrentUser().getId() && facture.getStatus().equals("not payed")
+        ).forEach(System.out::println);
+        System.out.println("Entrer id de facture: ");
+        int id = Integer.parseInt(scanner.nextLine());
+        Generatefacture generatefacture = new Generatefacture();
+        generatefacture.generateFacture(id);
+    }
+
     public void listAll() throws SQLException {
         factureService.getAllInvoices().forEach(System.out::println);
     }

@@ -6,6 +6,7 @@ import org.example.model.Client;
 import org.example.model.Facture;
 import org.example.services.ClientService;
 import org.example.services.FactureService;
+import org.example.sessions.Session;
 
 import java.io.FileOutputStream;
 import java.time.LocalDate;
@@ -19,7 +20,7 @@ public class FactureUnpayed {
 
     public void exportFacturesImpayees() {
 
-        String path = "C:\\Users\\appie\\Desktop\\facturat\\facturesimpayeesmois.xls";
+        String path = "C:\\Users\\PC\\Documents\\FinPay\\factures\\facture_unpayed.pdf";
 
         try {
 

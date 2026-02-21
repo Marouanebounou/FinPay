@@ -32,7 +32,7 @@ public class Generatefacture {
         Prestataire prestataire = prestataireService.findPrestatairById(facture.getId_pre());
 
 
-        String path = "C:\\Users\\appie\\Desktop\\facturat\\facture_"+facture.getIdInvoice()+".pdf";
+        String path = "C:\\Users\\PC\\Documents\\FinPay\\factures\\facture_" + facture.getIdInvoice() + ".pdf";
 
         try {
             PdfWriter writer = new PdfWriter(path);
