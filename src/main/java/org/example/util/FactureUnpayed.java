@@ -12,6 +12,7 @@ import java.io.FileOutputStream;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
+import java.util.Scanner;
 
 public class FactureUnpayed {
 
@@ -20,7 +21,7 @@ public class FactureUnpayed {
 
     public void exportFacturesImpayees() {
 
-        String path = "C:\\Users\\PC\\Documents\\FinPay\\factures\\facture_unpayed.pdf";
+        String path = "C:\\Users\\PC\\Documents\\FinPay\\factures\\facture_unpayed.xls";
 
         try {
 
