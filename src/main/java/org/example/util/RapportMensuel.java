@@ -14,17 +14,24 @@ import java.util.Scanner;
 
 public class RapportMensuel {
 
+    public static void generateExcelRapportMensuel() throws Exception {
+        String sql = "SELECT p.nom AS prestataire, " +
+                "COUNT(f.id) AS nombre_factures, " +
+                "SUM(f.balance) AS total_genere, " +
+                "SUM(f.balance * 0.02) AS total_commissions " +
+                "FROM facture f " +
+                "JOIN prestataire p ON f.id_pre = p.id_pre " +
+                "WHERE MONTH(f.date) = ? AND YEAR(f.date) = ? " +
+                "GROUP BY p.nom;";
 
-    public static void generateExcelRapportMensuel() throws Exception{
-        String sql = "select p.nom as prestataire, count(f.id) as nombre_factures, sum(f.balance) as total_genere, sum(f.balance * 0.02) as total_commissions from facture f join prestataire p on f.id_pre = p.id_pre where month(f.date) = ?  and year(f.date) = ?  group by p.nom;";
-        Scanner scanner  = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Entrer mois : ");
         int month = Integer.parseInt(scanner.nextLine());
         System.out.print("Entrer annee : ");
         int year = Integer.parseInt(scanner.nextLine());
         Connection connection = DatabaseConfig.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setInt(1 , month);
+        preparedStatement.setInt(1, month);
         preparedStatement.setInt(2, year);
         ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -37,8 +44,7 @@ public class RapportMensuel {
         header.createCell(3).setCellValue("Total Commissions");
 
         int rowNum = 1;
-
-        while (resultSet.next()){
+        while (resultSet.next()) {
             Row row = sheet.createRow(rowNum++);
             row.createCell(0).setCellValue(resultSet.getString("prestataire"));
             row.createCell(1).setCellValue(resultSet.getInt("nombre_factures"));
@@ -46,20 +52,17 @@ public class RapportMensuel {
             row.createCell(3).setCellValue(resultSet.getDouble("total_commissions"));
         }
 
-        for (int i = 0 ; i < 4 ; i++){
+        for (int i = 0; i < 4; i++) {
             sheet.autoSizeColumn(i);
         }
 
-        String fileName = "rapportglobal" + month + ".xls";
+        String fileName = FileNameGenerator.rapport(month, year);
         FileOutputStream fileOutputStream = new FileOutputStream(fileName);
         workbook.write(fileOutputStream);
         fileOutputStream.close();
         workbook.close();
         connection.close();
 
-        System.out.println("Rapport généré avec succès !");
-
+        System.out.println("Rapport généré avec succès : " + fileName);
     }
-
-
 }

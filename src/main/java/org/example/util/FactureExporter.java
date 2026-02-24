@@ -6,9 +6,7 @@ import org.example.config.DatabaseConfig;
 import org.example.model.Facture;
 
 import java.io.FileOutputStream;
-import java.math.BigDecimal;
 import java.sql.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,8 +26,6 @@ public class FactureExporter {
     WHERE f.id_pre = ?
 """;
 
-
-
         try (Connection conn = DatabaseConfig.getConnection();
              PreparedStatement ps = conn.prepareStatement(query)) {
 
@@ -48,12 +44,8 @@ public class FactureExporter {
 
                 f.setIdInvoice(rs.getInt("id"));
                 f.setClientName(rs.getString("client_name"));
-
                 factures.add(f);
             }
-
-
-
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -129,5 +121,4 @@ public class FactureExporter {
         }
         return name;
     }
-
 }

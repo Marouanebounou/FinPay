@@ -42,16 +42,16 @@ public class GeneratePaimentPdf {
             double montantPaye = rs.getDouble("montant_paye");
             double montantTotal = rs.getDouble("montant_total");
             double reste = montantTotal - montantPaye;
-            String fileName = "recupaiement" + id + ".pdf";
+
+            // ✅ Use FileNameGenerator instead of hardcoding
+            String fileName = FileNameGenerator.receiptName(id);
 
             PdfWriter writer = new PdfWriter(fileName);
             PdfDocument pdf = new PdfDocument(writer);
             Document document = new Document(pdf);
 
-            // Police par défaut
             PdfFont font = PdfFontFactory.createFont(com.itextpdf.io.font.constants.StandardFonts.HELVETICA);
 
-            // Titre avec style
             Paragraph title = new Paragraph("FINPAY")
                     .setFont(font)
                     .setFontSize(22)
@@ -64,7 +64,9 @@ public class GeneratePaimentPdf {
             document.add(new Paragraph(" "));
 
             float[] columnWidths = {150f, 250f};
-            Table table = new Table(UnitValue.createPercentArray(columnWidths)).setTextAlignment(TextAlignment.CENTER).setHorizontalAlignment(HorizontalAlignment.CENTER);
+            Table table = new Table(UnitValue.createPercentArray(columnWidths))
+                    .setTextAlignment(TextAlignment.CENTER)
+                    .setHorizontalAlignment(HorizontalAlignment.CENTER);
             table.setWidth(UnitValue.createPercentValue(80));
 
             table.addCell(new Cell().add(new Paragraph("Numéro Paiement").setBold()).setBackgroundColor(ColorConstants.LIGHT_GRAY));
