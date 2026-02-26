@@ -14,13 +14,12 @@ public class UpdateStatusInvoiceTest {
     private final PaiementService paiementService = new PaiementService();
     private final FactureController factureController = new FactureController();
 
-    public String createPaiment(String idInput, String montantInput) {
+    public String createPaiment(String idInput, String montantInput,int idClient) {
 
         try {
             factureController.getAllFactures().stream().filter(facture ->
-                    facture.getIdClient() == Session.getCurrentUser().getId() && facture.getStatus().equals("not payed")
+                    facture.getIdClient() == idClient && facture.getStatus().equals("not payed")
             ).forEach(System.out::println);
-            System.out.print("Entrer id de facture: ");
 
             int idFacture = Integer.parseInt(idInput);
 
@@ -31,8 +30,6 @@ public class UpdateStatusInvoiceTest {
                 return "";
             }
 
-            System.out.print("Montant payé: ");
-
             BigDecimal montant = new BigDecimal(montantInput);
 
             LocalDate date = LocalDate.now();
@@ -41,7 +38,7 @@ public class UpdateStatusInvoiceTest {
                     montant,
                     idFacture,
                     java.sql.Date.valueOf(date),
-                    Session.getCurrentUser().getId()
+                    idClient
             );
 
             factureController.updateFacture(facture);

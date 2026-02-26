@@ -9,9 +9,26 @@ public class UpdatePaiementTest {
     void shouldBePaid(){
         UpdateStatusInvoiceTest trying = new UpdateStatusInvoiceTest();
 
-        String result = trying.createPaiment("1","300");
+        String result = trying.createPaiment("5","1500",1);
 
         assertEquals("payed", result);
+    }
+    @Test
+    void shouldBeNotPaid(){
+        UpdateStatusInvoiceTest trying = new UpdateStatusInvoiceTest();
+
+        String result = trying.createPaiment("6","0",1);
+
+        assertEquals("not payed", result);
+    }
+
+    @Test
+    void shouldBePartielle(){
+        UpdateStatusInvoiceTest trying = new UpdateStatusInvoiceTest();
+
+        String result = trying.createPaiment("6","1",1);
+
+        assertEquals("partielle", result);
     }
 
 }
