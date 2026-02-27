@@ -9,13 +9,13 @@ class FileNameGeneratorTest {
     @Test
     void testReceiptName() {
         assertEquals("recu_10.pdf",
-                FileNameGenerator.receipt(10));
+                FileNameGenerator.receiptName(10));
     }
 
     @Test
     void testFactureName() {
-        assertEquals("facture_5.pdf",
-                FileNameGenerator.facture(5));
+        assertEquals("facture_6.pdf",
+                FileNameGenerator.facture(6));
     }
 
     @Test

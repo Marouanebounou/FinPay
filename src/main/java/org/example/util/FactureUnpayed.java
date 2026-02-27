@@ -39,6 +39,7 @@ public class FactureUnpayed {
             header.createCell(2).setCellValue("Date");
             header.createCell(3).setCellValue("Montant");
             header.createCell(4).setCellValue("Jours de Retard");
+            header.createCell(5).setCellValue("Email");
 
             int rowIndex = 1;
 
@@ -58,6 +59,7 @@ public class FactureUnpayed {
                 row.createCell(2).setCellValue(factureDate.toString());
                 row.createCell(3).setCellValue(facture.getBalance().doubleValue());
                 row.createCell(4).setCellValue(daysLate);
+                row.createCell(5).setCellValue(client.getEmail());
 
             }
 

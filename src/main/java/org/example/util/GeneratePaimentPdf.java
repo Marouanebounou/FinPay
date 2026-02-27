@@ -43,7 +43,6 @@ public class GeneratePaimentPdf {
             double montantTotal = rs.getDouble("montant_total");
             double reste = montantTotal - montantPaye;
 
-            // ✅ Use FileNameGenerator instead of hardcoding
             String fileName = FileNameGenerator.receiptName(id);
 
             PdfWriter writer = new PdfWriter(fileName);
