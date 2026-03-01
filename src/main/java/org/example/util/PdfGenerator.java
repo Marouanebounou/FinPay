@@ -8,7 +8,7 @@ public class PdfGenerator {
     public static void generateFacturePDF(Facture facture, Client client) {
         System.out.println("=== PDF Fichier ===");
         System.out.println("Client : " + client.getName() + " | Email: " + client.getEmail());
-        System.out.println("Facture ID : " + facture.getIdInvoice());
+        System.out.println("Facture ID : " + facture.getId());
         System.out.println("Montant : " + facture.getBalance() + " MAD");
         System.out.println("Statut : " + facture.getStatus());
         System.out.println("===================");
