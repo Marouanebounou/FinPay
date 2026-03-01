@@ -34,7 +34,7 @@ public class Calcultotalfacturesprestataire {
                 facturesResultat.add(new Facture(idPre, nb, total));
             }
         } catch (SQLException e) {
-            System.err.println("Erreur SQL : " + e.getMessage());
+            System.err.println("Erreur SQL Connection : " + e.getMessage());
             e.printStackTrace();
         }
         return facturesResultat;
