@@ -2,10 +2,7 @@ package org.example.controller;
 
 import org.example.model.Statistique;
 import org.example.sessions.Session;
-import org.example.util.FactureExporter;
-import org.example.util.FactureUnpayed;
-import org.example.util.Generatefacture;
-import org.example.util.RapportMensuel;
+import org.example.util.*;
 
 import java.util.Scanner;
 
@@ -49,8 +46,14 @@ public class MenuController {
                 case 1 -> factureController.createFacture();
                 case 2 -> paiementController.getAllPaiments();
                 case 3 -> factureController.getCurrentProviderFactures();
-                case 4 -> FactureExporter.exportToExcel(Session.getCurrentUser().getId() , "factures.xlsx");
-                case 5 -> {FactureUnpayed factureUnpayed = new FactureUnpayed() ; factureUnpayed.exportFacturesImpayees();}
+                case 4 -> {
+                    String fileName = FileNameGenerator.facture(Session.getCurrentUser().getId());
+                    FactureExporter.exportToExcel(Session.getCurrentUser().getId(), fileName);
+                }
+                case 5 -> {
+                    FactureUnpayed factureUnpayed = new FactureUnpayed();
+                    factureUnpayed.exportFacturesImpayees();
+                }
                 case 0 -> authController.logout();
                 default -> System.out.println("Choix invalide");
             }
