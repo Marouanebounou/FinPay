@@ -16,7 +16,6 @@ public class Calcultotalfacturesprestataire {
     public static List<Facture> totalFacturesChaquePrestataire() {
         List<Facture> facturesResultat = new ArrayList<>();
 
-        // Hna beddelna idInvoice b id hit hia li 3ndek f SQL
         String query = "SELECT f.id_pre, COUNT(f.id) as nombreFacture, " +
                 "ROUND(SUM(f.balance),2) as sommeMontant " +
                 "FROM facture f " +
