@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClientDao {
-    public void addClient(Client client){
+    public Boolean addClient(Client client) throws SQLException{
 
         String query = "INSERT INTO client(clientName,age,email,passwordClient) VALUES (?,?,?,?)";
 
@@ -29,6 +29,29 @@ public class ClientDao {
         catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return findClienByEmail(client.getEmail());
+    }
+    public boolean findClienByEmail(String email) throws SQLException {
+        String rechercher = "SELECT * FROM client WHERE email = ?";
+        Connection conn = DatabaseConfig.getConnection();
+        PreparedStatement ps = conn.prepareStatement(rechercher);
+        ResultSet rs = ps.executeQuery();
+        Client client = null;
+        while (rs.next()) {
+
+            client = new Client(
+                    rs.getString("clientName"),
+                    rs.getInt("age"),
+                    rs.getString("email"),
+                    rs.getString("passwordClient")
+            );
+        }
+        if (client == null){
+            return false;
+        }else {
+            return true;
+        }
+
     }
 
     public boolean removeClient(int clientId) throws SQLException{

@@ -8,7 +8,7 @@ import java.util.List;
 public class ClientService {
     private final ClientDao clientDao = new ClientDao();
 
-    public void registerClient(Client client) throws SQLException {
+    public boolean registerClient(Client client) throws SQLException {
         if (!client.getEmail().contains("@")) {
             throw new IllegalArgumentException("Format d'email invalide.");
         }
@@ -16,6 +16,7 @@ public class ClientService {
             throw new IllegalArgumentException("Le client doit être majeur.");
         }
         clientDao.addClient(client);
+        return true;
     }
 
     public List<Client> getAllClients() throws SQLException {

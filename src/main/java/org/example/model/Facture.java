@@ -11,6 +11,7 @@ public class Facture {
     private String status;
     private int idClient;
     private String name;
+    private int nombreFactures;
 
     public String getClientName() {
         return name;
@@ -27,6 +28,21 @@ public class Facture {
         this.status = status;
         this.idClient = idClient;
     }
+
+    public Facture(int id_pre, int nombreFactures, BigDecimal balance) {
+        this.id_pre = id_pre;
+        this.nombreFactures = nombreFactures;
+        this.balance = balance;
+    }
+
+    public int getNombreFactures() {
+        return nombreFactures;
+    }
+
+    public void setNombreFactures(int nombreFactures) {
+        this.nombreFactures = nombreFactures;
+    }
+
     public int getIdInvoice() { return idInvoice; }
     public void setIdInvoice(int idInvoice) { this.idInvoice = idInvoice; }
 
@@ -51,6 +67,7 @@ public class Facture {
                 "idInvoice=" + idInvoice +
                 ", id_pre=" + id_pre +
                 ", balance=" + balance +
+                ", nombreFactures=" + nombreFactures +
                 ", date=" + date +
                 ", status='" + status + '\'' +
                 ", idClient=" + idClient +

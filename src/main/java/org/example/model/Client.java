@@ -9,6 +9,10 @@ public class Client extends Person {
         this.email = email;
         this.password = password;
     }
+    public Client(String name , String email , int age){
+        super(name , age);
+        this.email = email;
+    }
 
     public int getClientId() {
         return clientId;
