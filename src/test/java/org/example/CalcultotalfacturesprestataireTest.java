@@ -48,7 +48,7 @@ public class CalcultotalfacturesprestataireTest {
         }
     }
     @Test
-    @DisplayName("Test 3 – Calcul total factures prestataire")
+    @DisplayName("Test 3 – Calcul total factures prestataire.")
     void testCalculerTotalFactures() {
 
         List<Facture> resultats = Calcultotalfacturesprestataire.totalFacturesChaquePrestataire();
