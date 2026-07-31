@@ -1,76 +1,83 @@
-# FinPay - Centralisation et Suivi des Paiements Électroniques
+# FinPay
 
-## Contexte du projet
-Une société FinTech fictive nommée **FinPay** souhaite développer une application permettant de centraliser, sécuriser et suivre les paiements électroniques entre des clients, des prestataires de services (commerçants) et la plateforme FinPay.
+## 1. Nom du projet
 
-Dans le contexte marocain, FinPay peut être assimilée à une solution utilisée par des cliniques privées, écoles, cabinets juridiques ou sociétés de services, afin de gérer efficacement leurs paiements numériques.
-
-### Exemple concret
-Une clinique privée à Casablanca utilise FinPay pour gérer ses paiements :
-1. La clinique crée une facture de 500 MAD pour un patient.
-2. Le patient effectue le paiement via FinPay.
-3. **FinPay** :
-    - Enregistre le paiement dans le système.
-    - Calcule automatiquement une commission de 2 %.
-    - Marque la facture comme payée.
-    - Conserve l’historique de l’opération.
-
-Grâce à FinPay, la clinique peut suivre les factures payées/non payées, connaître les montants perçus et consulter l’historique. La plateforme FinPay suit ses commissions, le volume des transactions et les flux financiers globaux.
+**Nom du projet :** FinPay – Plateforme de Gestion des Paiements Électroniques
 
 ---
 
-## Fonctionnalités principales
-- **Clients** : Ajouter, modifier, supprimer, lister, rechercher.
-- **Prestataires** : Ajouter, modifier, supprimer, lister, rechercher.
-- **Factures** : Créer, modifier, supprimer, lister, filtrer par statut ou prestataire.
-- **Paiements** : Enregistrer, mettre à jour, lister, gérer les paiements partiels.
-- **Commissions FinPay** : Calcul automatique pour chaque paiement (2%).
-- **Statistiques** : Total paiements, commissions, factures payées/non payées.
-- **Reporting (PDF/Excel)** : Génération de documents officiels et rapports financiers.
+# 2. Présentation du projet
+
+FinPay est une application de gestion des paiements électroniques permettant de centraliser les transactions entre les clients, les prestataires de services et la plateforme financière. Elle permet de gérer les clients, les prestataires, les factures, les paiements et le calcul automatique des commissions. Son objectif principal est de fournir une solution sécurisée pour suivre les opérations financières, générer des documents et produire des rapports exploitables.
 
 ---
 
-## Contraintes techniques
-### Modélisation UML
-- Diagramme de classes
-- Diagramme de cas d’utilisation
-- Diagramme de séquence
+# 3. Problématique
 
-### Base de données
-- Utilisation de **JDBC** pour la connexion.
-- Exécution de requêtes SQL depuis Java.
-- Gestion des erreurs et des ressources (try-with-resources).
+Le problème identifié est que les entreprises utilisant des paiements numériques ont besoin d’un système centralisé pour suivre leurs factures, paiements et commissions sans utiliser plusieurs outils séparés.
+
+La solution proposée permet de gérer l’ensemble du cycle de paiement, depuis la création d’une facture jusqu’à l’enregistrement du paiement, le calcul des commissions et la génération de rapports financiers.
 
 ---
 
-## Gestion Documentaire et Reporting professionnel
-### Génération de Facture (PDF)
-- **Contenu** : Logo FinPay, infos client/prestataire, date, montant total, commission, montant net, statut.
-- **Format** : `facture_ID.pdf`.
+# 4. Fonctionnalités principales
 
-### Génération d’un Reçu de Paiement (PDF)
-- **Contenu** : Numéro paiement, numéro facture, date, méthode, montant payé, reste à payer.
-- **Format** : `recupaiementID.pdf`.
-
-### Exports Excel
-- **Factures d’un Prestataire** : Liste des factures avec calculs automatiques du total facturé, payé et en attente (`facturesprestatairemois.xls`).
-- **Rapport Global Mensuel (Admin)** : Données regroupées par prestataire via `GROUP BY` SQL (`rapportglobalmois.xls`).
-- **Export des Factures Impayées** : Identification des retards avec calcul dynamique des jours de retard (`facturesimpayeesmois.xls`).
+- Ajouter, modifier, supprimer et rechercher des clients.
+- Ajouter, modifier, supprimer et rechercher des prestataires.
+- Créer et gérer les factures.
+- Filtrer les factures par statut ou prestataire.
+- Enregistrer les paiements électroniques.
+- Gérer les paiements partiels.
+- Calculer automatiquement les commissions FinPay.
+- Mettre à jour automatiquement le statut des factures.
+- Générer des factures PDF.
+- Générer des reçus de paiement PDF.
+- Exporter les factures prestataires en Excel.
+- Générer des rapports financiers mensuels.
+- Exporter les factures impayées.
 
 ---
 
-## Architecture et Tests (Migration Maven)
-### Structure du projet
-- Utilisation de **Maven** pour la gestion des dépendances (JDBC, iText/OpenPDF, Apache POI).
-- Structure standard : `src/main/java`, `src/main/resources`, `src/test/java`.
+# 5. Technologies utilisées
 
-### Tests Unitaires (JUnit)
-- **Test 1 – Calcul de commission** : Vérification de la règle `montant * 0.02`.
-- **Test 2 – Mise à jour du statut facture** : Gestion des statuts `PAID` vs `PENDING` selon le paiement.
-- **Test 3 – Calcul total factures prestataire** : Validation de la somme des montants.
-- **Test 4 – Génération des noms de fichiers** : Respect des formats `facture_123.pdf`, `recu_456.pdf`, etc.
+| Technologie | Utilisation dans le projet |
+|-------------|----------------------------|
+| Java | Développement de l’application |
+| JDBC | Connexion et communication avec la base de données |
+| SQL | Création des requêtes et manipulation des données |
+| MySQL / PostgreSQL | Stockage des informations financières |
+| Maven | Gestion du projet et des dépendances |
+| JUnit 5 | Réalisation des tests unitaires |
+| iText | Génération des documents PDF |
+| Apache POI | Création des fichiers Excel |
+| Git/GitHub | Gestion du code source |
 
-### Bonus
-- Utilisation de **Mockito** pour simuler les dépendances.
-- Rapports de tests automatisés.
-- Configuration de profils Maven.
+Nous avons utilisé **Java** pour développer la logique métier de l’application.
+
+Nous avons utilisé **JDBC** pour établir la connexion avec la base de données relationnelle et exécuter les requêtes SQL.
+
+Nous avons utilisé **iText** pour générer automatiquement les factures et reçus au format PDF.
+
+Nous avons utilisé **Apache POI** pour créer les exports Excel contenant les rapports financiers.
+
+---
+
+# 6. Installation et lancement
+
+## 6.1 Prérequis
+
+Pour utiliser ce projet, vous devez disposer de :
+
+- Java JDK 17 ou supérieur
+- Maven
+- MySQL ou PostgreSQL
+- Git
+- IntelliJ IDEA ou Eclipse
+- Un terminal de commande
+
+---
+
+## 6.2 Cloner le dépôt
+
+```bash
+git clone https://github.com/VOTRE_COMPTE/finpay.git
